@@ -2,7 +2,12 @@ p {
   font-family: Lato;
 }
 
+#header {
+  background: teal;
+}
+
 #footer {
-  border: 1em black;
-  background: blue;
+  outline: 1em black;
+  padding: 2px;
+  background: teal;
 }
