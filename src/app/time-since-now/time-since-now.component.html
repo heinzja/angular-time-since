@@ -1,0 +1,21 @@
+<div class="parent">
+  <div>
+    Title:
+    <input
+      #input
+      [value]="this.data['title']"
+      (keyup.enter)="updateTitle(input.value)"
+    />
+    ID: {{this.data['id']}}
+  </div>
+  <div>
+    time-pressed: {{this.data['time_pressed']}}
+    <br />
+    <div *ngIf="this.time_now">
+      time-sincesssss : {{time_since}}
+    </div>
+  </div>
+  <div>
+    footer
+  </div>
+</div>
