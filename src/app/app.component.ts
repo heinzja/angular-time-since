@@ -28,7 +28,7 @@ export class AppComponent {
     this.num_items++;
     const time = this.time_now;
     this.item_list[this.num_items] = {
-      title: "Time Since: ",
+      title: "",
       id: this.num_items,
       time_pressed: time
     };

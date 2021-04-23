@@ -1,28 +1,27 @@
-<div>Time Since</div>
-<div>
-  <h1>content</h1>
-  <div>
+<div id="root">
+  <div id="header">Time Since</div>
+  <div id="content">
     <button>save</button>
     <button>load</button>
     <br />
     <button (click)="onAddNewTime()">Add</button>
-    <div *ngFor="let item of item_list | keyvalue">
-      <div>
-        <app-time-since-now
-          [id]="item.key"
-          [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)"
-        ></app-time-since-now>
+    <br />
+    <div>
+      <div *ngFor="let item of item_list | keyvalue">
+        <div>
+          <app-time-since-now [id]="item.key" [data]="item.value" (updated_data)="this.onDataUpdate($event)">
+          </app-time-since-now>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div id="footer">
-  <table style="width: 100%">
-    <tr>
-      <td>time since</td>
-      <td>|0-w-0|</td>
-      <td>{{todays_date}}</td>
-    </tr>
-  </table>
+  <div id="footer">
+    <table style="width: 100%">
+      <tr>
+        <td>time since</td>
+        <td>|0-w-0|</td>
+        <td>{{todays_date}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

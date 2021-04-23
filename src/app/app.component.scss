@@ -2,12 +2,25 @@ p {
   font-family: Lato;
 }
 
+#root {
+  background: orange;
+}
+
 #header {
+  text-align: center;
+  outline: 3px black;
+  margin-bottom: 5px;
+  padding: 10px;
   background: teal;
 }
 
+#content {
+  padding: 10px;
+}
+
 #footer {
-  outline: 1em black;
-  padding: 2px;
+  outline: 3px black;
+  margin-top: 5px;
+  padding: 5px;
   background: teal;
 }

@@ -1,21 +1,21 @@
 <div class="parent">
-  <div>
+  <div id="header">
     Title:
     <input
       #input
+      placeholder="placeholder"
       [value]="this.data['title']"
       (keyup.enter)="updateTitle(input.value)"
     />
     ID: {{this.data['id']}}
   </div>
-  <div>
+  <div id="content">
     time-pressed: {{this.data['time_pressed']}}
     <br />
     <div *ngIf="this.time_now">
       time-sincesssss : {{time_since}}
     </div>
   </div>
-  <div>
-    footer
+  <div id="footer">
   </div>
 </div>
