@@ -1,5 +1,29 @@
 .parent {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 265px;
+  max-height: 355px;
+  padding: 10px;
   border: 1px solid black;
+  border-radius: 10px;
+}
+
+#header {
+  width: auto;
+  height: auto;
+  outline: 3px black;
+  padding: 2px;
+  background: teal;
+  text-align: center;
+}
+
+#content {
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+#footer {
+  width: auto;
+  height: auto;
+  outline: 3px black;
+  background: teal;
 }

@@ -7,8 +7,8 @@
     <button (click)="onAddNewTime()">Add</button>
     <br />
     <div>
-      <div *ngFor="let item of item_list | keyvalue">
-        <div>
+      <div id=grid-container>
+        <div *ngFor="let item of item_list | keyvalue">
           <app-time-since-now [id]="item.key" [data]="item.value" (updated_data)="this.onDataUpdate($event)">
           </app-time-since-now>
         </div>

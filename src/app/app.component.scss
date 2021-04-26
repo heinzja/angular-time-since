@@ -18,6 +18,13 @@ p {
   padding: 10px;
 }
 
+#grid-container {
+  display: inline-grid;
+  grid-template-columns: minmax(auto, 4fr) minmax(auto, 4fr) minmax(auto, 4fr);
+  grid-template-rows: minmax(auto, 4fr) minmax(auto, 4fr) minmax(auto, 4fr);
+  grid-gap: 10px;
+}
+
 #footer {
   outline: 3px black;
   margin-top: 5px;
