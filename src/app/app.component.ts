@@ -1,4 +1,5 @@
 import { Component, SimpleChanges } from "@angular/core";
+import * as uuid from "uuid";
 
 @Component({
   selector: "my-app",
@@ -29,7 +30,7 @@ export class AppComponent {
     const time = this.time_now;
     this.item_list[this.num_items] = {
       title: "TimeSince Now",
-      id: "TimeSince-Now-" + this.num_items,
+      id: "TimeSince-Now-" + uuid.v4(),
       time_pressed: time
     };
     console.log(this.item_list);
@@ -40,7 +41,7 @@ export class AppComponent {
     const time = this.time_now;
     this.item_list[this.num_items] = {
       title: "TimeSince Custom",
-      id: "TimeSince-Custom-" + this.num_items,
+      id: "TimeSince-Custom-" + uuid.v4(),
       time_pressed: time
     };
     console.log(this.item_list);
