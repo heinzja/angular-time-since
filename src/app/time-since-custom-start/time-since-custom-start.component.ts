@@ -1,0 +1,46 @@
+import { Component, OnInit, Input, Output } from "@angular/core";
+
+@Component({
+  selector: "app-time-custom-start",
+  templateUrl: "./time-since-custom-start.component.html",
+  styleUrls: ["./time-since-custom-start.component.scss"]
+})
+export class TimeSinceCustomStartComponent implements OnInit {
+  @Input() id: any;
+  @Input() data: {};
+  @Output() modified_data: {} = {};
+  time_now: Date;
+  time_since: string;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.updateNowTime();
+    setInterval(() => {
+      this.updateNowTime();
+    }, 1000);
+  }
+
+  updateNowTime(): void {
+    this.time_now = new Date();
+    this.time_since = this.calcTimeSince();
+  }
+
+  calcTimeSince(): string {
+    const time_since: number =
+      this.time_now.getTime() - (<Date>this.data["time_pressed"]).getTime();
+    return (
+      new Date(time_since).getUTCHours() +
+      " : " +
+      new Date(time_since).getUTCMinutes() +
+      " : " +
+      new Date(time_since).getUTCSeconds()
+    );
+  }
+
+  updateTitle(new_value) {
+    console.log("new", new_value);
+    this.data["title"] = new_value;
+    this.modified_data["title"] = [...this.data["title"]];
+  }
+}

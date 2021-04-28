@@ -24,12 +24,23 @@ export class AppComponent {
     console.log(changes);
   }
 
-  onAddNewTime() {
+  onAddNewTimeSinceNow() {
     this.num_items++;
     const time = this.time_now;
     this.item_list[this.num_items] = {
-      title: "",
-      id: this.num_items,
+      title: "TimeSince Now",
+      id: "TimeSince-Now-" + this.num_items,
+      time_pressed: time
+    };
+    console.log(this.item_list);
+  }
+
+  onAddNewTimeSinceCustom() {
+    this.num_items++;
+    const time = this.time_now;
+    this.item_list[this.num_items] = {
+      title: "TimeSince Custom",
+      id: "TimeSince-Custom-" + this.num_items,
       time_pressed: time
     };
     console.log(this.item_list);

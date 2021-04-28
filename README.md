@@ -7,4 +7,7 @@
   - track in time how long it has been since you last video called your mother
   - etc
 
+# Developers:
+  - l0-w-0l - Joseph Heinz - joseph.heinz@alumni.msoe.edu
+
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-time-since)
