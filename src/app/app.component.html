@@ -5,14 +5,6 @@
     <button disabled>load(WIP)</button>
     <br />
     <button (click)="onAddNewTimeSinceNow()">Add TimeSince Now</button>
-    <br />
-    <div id=grid-container>
-      <div *ngFor="let item of item_list | keyvalue">
-        <app-time-since-now [id]="item.key" [data]="item.value" (updated_data)="this.onDataUpdate($event)">
-        </app-time-since-now>
-      </div>
-    </div>
-    <br />
     <button (click)="onAddNewTimeSinceCustom()">Add TimeSince Custom Start</button>
     <br />
     <div id=grid-container>
