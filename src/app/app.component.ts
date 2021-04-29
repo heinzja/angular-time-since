@@ -22,35 +22,65 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    console.log("test " + localStorage[1]);
+    const num_items = Number.parseInt(localStorage.getItem("num_items"));
+
+    if (!isNaN(num_items)) {
+      this.num_items = num_items;
+    }
+
+    console.log("num_items = ", this.num_items);
+    localStorage.setItem("num_items", this.num_items.toString());
+    this.loadFromLocalStorage();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
 
+  loadFromLocalStorage() {
+    console.log("loading...");
+    console.log("this.num_items = ", this.num_items);
+    for (var i = 1; i <= this.num_items; i++) {
+      console.log("i = " + i);
+      this.item_list[i] = JSON.parse(localStorage.getItem("TimeSince-" + i));
+      console.log("TimeSince-" + i, localStorage.getItem("TimeSince-" + i));
+    }
+    console.log("this.item_list ", this.item_list);
+    console.log("loading... completed");
+  }
+
   onAddNewTimeSinceNow() {
+    this.num_items++;
     const time = this.time_now;
     const unique_id = "TimeSince-Now-" + uuid.v4();
+    const cookie_key = "TimeSince-" + this.num_items;
+
     this.item_list[unique_id] = {
       title: "TimeSince Now",
       id: unique_id,
       time_pressed: time
     };
-    console.log(this.item_list);
-    localStorage.setItem(unique_id, this.item_list[unique_id]);
+
+    localStorage.setItem(cookie_key, JSON.stringify(this.item_list[unique_id]));
+    localStorage.setItem("num_items", this.num_items.toString());
+    // console.log(this.item_list);
   }
 
   onAddNewTimeSinceCustom() {
+    this.num_items++;
     const time = this.time_now;
     const unique_id = "TimeSince-Custom-" + uuid.v4();
+    const cookie_key = "TimeSince-" + this.num_items;
+
     this.item_list[unique_id] = {
       title: "TimeSince Custom",
       id: unique_id,
       time_pressed: time
     };
-    console.log(this.item_list);
-    localStorage.setItem(unique_id, this.item_list[unique_id]);
+
+    localStorage.setItem(cookie_key, JSON.stringify(this.item_list[unique_id]));
+    localStorage.setItem("num_items", this.num_items.toString());
+    // console.log(this.item_list);
   }
 
   isTimeSinceNow(value: {}) {

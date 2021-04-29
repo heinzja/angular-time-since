@@ -28,7 +28,7 @@ export class TimeSinceNowComponent implements OnInit {
 
   calcTimeSince(): string {
     const time_since: number =
-      this.time_now.getTime() - (<Date>this.data["time_pressed"]).getTime();
+      this.time_now.getTime() - new Date(this.data["time_pressed"]).getTime();
     return (
       new Date(time_since).getUTCHours() +
       " : " +

@@ -5,16 +5,26 @@
     <button disabled>load(WIP)</button>
     <br />
     <button (click)="onAddNewTimeSinceNow()">Add TimeSince Now</button>
-    <button (click)="onAddNewTimeSinceCustom()">Add TimeSince Custom Start</button>
+    <button (click)="onAddNewTimeSinceCustom()">
+      Add TimeSince Custom Start
+    </button>
     <br />
-    <div id=grid-container>
+    <div id="grid-container" *ngIf="num_items > 0">
       <div *ngFor="let item of item_list | keyvalue">
-        <app-time-since-now *ngIf="isTimeSinceNow(item.value)" [id]="item.key" [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)">
+        <app-time-since-now
+          *ngIf="isTimeSinceNow(item.value)"
+          [id]="item.key"
+          [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)"
+        >
         </app-time-since-now>
 
-        <app-time-since-now *ngIf="isTimeSinceCustom(item.value)" [id]="item.key" [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)">
+        <app-time-since-now
+          *ngIf="isTimeSinceCustom(item.value)"
+          [id]="item.key"
+          [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)"
+        >
         </app-time-since-now>
       </div>
     </div>
