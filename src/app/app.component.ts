@@ -21,30 +21,36 @@ export class AppComponent {
     }, 1000);
   }
 
+  ngOnInit(): void {
+    console.log("test " + localStorage[1]);
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
 
   onAddNewTimeSinceNow() {
-    this.num_items++;
     const time = this.time_now;
-    this.item_list[this.num_items] = {
+    const unique_id = "TimeSince-Now-" + uuid.v4();
+    this.item_list[unique_id] = {
       title: "TimeSince Now",
-      id: "TimeSince-Now-" + uuid.v4(),
+      id: unique_id,
       time_pressed: time
     };
     console.log(this.item_list);
+    localStorage.setItem(unique_id, this.item_list[unique_id]);
   }
 
   onAddNewTimeSinceCustom() {
-    this.num_items++;
     const time = this.time_now;
-    this.item_list[this.num_items] = {
+    const unique_id = "TimeSince-Custom-" + uuid.v4();
+    this.item_list[unique_id] = {
       title: "TimeSince Custom",
-      id: "TimeSince-Custom-" + uuid.v4(),
+      id: unique_id,
       time_pressed: time
     };
     console.log(this.item_list);
+    localStorage.setItem(unique_id, this.item_list[unique_id]);
   }
 
   isTimeSinceNow(value: {}) {
