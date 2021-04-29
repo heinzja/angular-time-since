@@ -4,18 +4,14 @@
     <button disabled>save(WIP)</button>
     <button disabled>load(WIP)</button>
     <br />
-    <button (click)="onAddNewTimeSinceNow()">Add TimeSince Now</button>
-    <button (click)="onAddNewTimeSinceCustom()">Add TimeSince Custom Start</button>
+    <button (click)="addNewTimeSince()">Start Counting!</button>
     <br />
     <div id=grid-container>
-      <div *ngFor="let item of item_list | keyvalue">
-        <app-time-since-now *ngIf="isTimeSinceNow(item.value)" [id]="item.key" [data]="item.value"
+      {{item_list}}
+      <div *ngFor="let item of item_list">
+        <app-time-since [id]="item.id" [title]="item.title" [time]="item.time"
           (updated_data)="this.onDataUpdate($event)">
-        </app-time-since-now>
-
-        <app-time-since-now *ngIf="isTimeSinceCustom(item.value)" [id]="item.key" [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)">
-        </app-time-since-now>
+        </app-time-since>
       </div>
     </div>
   </div>

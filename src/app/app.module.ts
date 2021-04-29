@@ -3,15 +3,13 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
-import { TimeSinceNowComponent } from "./time-since-now/time-since-now.component";
-import { TimeSinceCustomStartComponent } from "./time-since-custom-start/time-since-custom-start.component";
+import { TimeSince } from "./time-since/time-since.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [
     AppComponent,
-    TimeSinceNowComponent,
-    TimeSinceCustomStartComponent
+    TimeSince,
   ],
   bootstrap: [AppComponent]
 })
