@@ -23,8 +23,9 @@ export class TimeSince implements OnInit {
   }
 
   calcTimeSince() {
+    console.log(this.time);
     const current_date = new Date;
-    const saved_date = this.time;
+    const saved_date = new Date(this.time);
     const time_since: number = current_date.getTime() - saved_date.getTime();
     this.time_since = (
       new Date(time_since).getUTCHours() +

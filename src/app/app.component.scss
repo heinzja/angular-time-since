@@ -20,8 +20,8 @@ p {
 
 #grid-container {
   display: inline-grid;
-  grid-template-columns: minmax(auto, 2fr) minmax(auto, 2fr) minmax(auto, 2fr);
-  grid-template-rows: minmax(auto, 2fr) minmax(auto, 2fr) minmax(auto, 2fr);
+  grid-template-columns: minmax(auto, 1fr);
+  grid-template-rows: minmax(auto, 1fr) minmax(auto, 1fr);
   grid-gap: 10px;
 }
 

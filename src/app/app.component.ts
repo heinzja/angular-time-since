@@ -12,7 +12,7 @@ export class AppComponent {
   // todays_date: any = new Date().toLocaleDateString();
 
   ngOnInit(): void {
-    console.log("test " + localStorage[1]);
+    this.loadFromLocalStorage();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -20,14 +20,31 @@ export class AppComponent {
   }
 
   addNewTimeSince() {
-    const id = "TimeSince" + this.item_list.length;
+    const id = this.item_list.length;
+
     this.item_list.push({
       id,
       title: "TimeSince",
       time: new Date(),
     });
     console.log(this.item_list);
-    localStorage.setItem(id, this.item_list[id]);
+    localStorage.setItem("TimeSince", JSON.stringify(this.item_list));
+  }
+
+  loadFromLocalStorage() {
+    console.log("loading...");
+    this.item_list = JSON.parse(localStorage.getItem("TimeSince"));
+    if(this.item_list === null) {
+      this.item_list = [];
+    }
+    console.log(this.item_list);
+    console.log("this.item_list ", this.item_list);
+    console.log("loading... completed");
+  }
+
+  onClearLocalStorage(): void {
+    localStorage.clear();
+    this.item_list = [];
   }
 
   onRemoveTime(id: number) {

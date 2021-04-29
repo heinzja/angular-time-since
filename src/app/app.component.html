@@ -3,11 +3,11 @@
   <div id="content">
     <button disabled>save(WIP)</button>
     <button disabled>load(WIP)</button>
+    <button (click)="onClearLocalStorage()">clear local storage </button>
     <br />
     <button (click)="addNewTimeSince()">Start Counting!</button>
     <br />
     <div id=grid-container>
-      {{item_list}}
       <div *ngFor="let item of item_list">
         <app-time-since [id]="item.id" [title]="item.title" [time]="item.time"
           (updated_data)="this.onDataUpdate($event)">
@@ -19,7 +19,11 @@
     <table style="width: 100%">
       <tr>
         <td>time since</td>
-        <td>|0-w-0|</td>
+        <td>
+          <a href="https://github.com/l0-w-0l/angular-time-since">
+            GitHub: |0-w-0|
+          </a>
+        </td>
         <td>{{todays_date}}</td>
       </tr>
     </table>
