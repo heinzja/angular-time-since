@@ -9,7 +9,12 @@
     <br />
     <div id=grid-container>
       <div *ngFor="let item of item_list | keyvalue">
-        <app-time-since-now [id]="item.key" [data]="item.value" (updated_data)="this.onDataUpdate($event)">
+        <app-time-since-now *ngIf="isTimeSinceNow(item.value)" [id]="item.key" [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)">
+        </app-time-since-now>
+
+        <app-time-since-now *ngIf="isTimeSinceCustom(item.value)" [id]="item.key" [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)">
         </app-time-since-now>
       </div>
     </div>

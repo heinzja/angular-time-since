@@ -47,6 +47,30 @@ export class AppComponent {
     console.log(this.item_list);
   }
 
+  isTimeSinceNow(value: {}) {
+    // console.log("isTimeSinceNow: value['id'] = " + value["id"]);
+    var result: boolean = false;
+
+    if (value["id"].includes("TimeSince-Now")) {
+      result = true;
+    }
+
+    // console.log("isTimeSinceNow: result = " + result);
+    return result;
+  }
+
+  isTimeSinceCustom(value: {}) {
+    // console.log("isTimeSinceCustom: value['id'] = " + value["id"]);
+    var result: boolean = false;
+
+    if (value["id"].includes("TimeSince-Custom")) {
+      result = true;
+    }
+
+    // console.log("isTimeSinceCustom: result = " + result);
+    return result;
+  }
+
   onRemoveTime(item_id: string) {
     this.item_list[item_id] = {};
   }
