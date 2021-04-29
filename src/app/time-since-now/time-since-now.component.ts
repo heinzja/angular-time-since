@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-time-since-now",
@@ -7,8 +7,9 @@ import { Component, OnInit, Input, Output } from "@angular/core";
 })
 export class TimeSinceNowComponent implements OnInit {
   @Input() id: any;
-  @Input() data: {};
+  @Input() data: {} = {};
   @Output() modified_data: {} = {};
+  @Output() isDeleted: EventEmitter<Boolean> = new EventEmitter();
   time_now: Date;
   time_since: string;
 
@@ -19,6 +20,10 @@ export class TimeSinceNowComponent implements OnInit {
     setInterval(() => {
       this.updateNowTime();
     }, 1000);
+  }
+
+  onDeleteCard() {
+    this.isDeleted.emit(true);
   }
 
   updateNowTime(): void {

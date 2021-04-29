@@ -7,6 +7,8 @@
       [value]="this.data['title']"
       (keyup.enter)="updateTitle(input.value)"
     />
+    <button (click)="onDeleteCard()">X Is Deleted: {{isDeleted}}</button>
+    <br>
     ID: {{this.data['id']}}
   </div>
   <br />

@@ -14,6 +14,7 @@
       <div *ngFor="let item of item_list | keyvalue">
         <app-time-since-now *ngIf="isTimeSinceNow(item.value)" [id]="item.key" [data]="item.value"
           (updated_data)="this.onDataUpdate($event)">
+          <button>test</button>
         </app-time-since-now>
 
         <app-time-since-now *ngIf="isTimeSinceCustom(item.value)" [id]="item.key" [data]="item.value"
@@ -26,7 +27,11 @@
     <table style="width: 100%">
       <tr>
         <td>time since</td>
-        <td>|0-w-0|</td>
+        <td>
+          <a href="https://github.com/l0-w-0l/angular-time-since">
+            GitHub: |0-w-0|
+          </a>
+        </td>
         <td>{{todays_date}}</td>
       </tr>
     </table>
