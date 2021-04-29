@@ -3,6 +3,7 @@
   <div id="content">
     <button disabled>save(WIP)</button>
     <button disabled>load(WIP)</button>
+    <button (click)="onClearLocalStorage()">clear local storage </button>
     <br />
     <button (click)="onAddNewTimeSinceNow()">Add TimeSince Now</button>
     <button (click)="onAddNewTimeSinceCustom()">
@@ -11,20 +12,12 @@
     <br />
     <div id="grid-container" *ngIf="num_items > 0">
       <div *ngFor="let item of item_list | keyvalue">
-        <app-time-since-now
-          *ngIf="isTimeSinceNow(item.value)"
-          [id]="item.key"
-          [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)"
-        >
+        <app-time-since-now *ngIf="isTimeSinceNow(item.value)" [id]="item.key" [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)">
         </app-time-since-now>
 
-        <app-time-since-now
-          *ngIf="isTimeSinceCustom(item.value)"
-          [id]="item.key"
-          [data]="item.value"
-          (updated_data)="this.onDataUpdate($event)"
-        >
+        <app-time-since-now *ngIf="isTimeSinceCustom(item.value)" [id]="item.key" [data]="item.value"
+          (updated_data)="this.onDataUpdate($event)">
         </app-time-since-now>
       </div>
     </div>

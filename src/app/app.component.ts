@@ -49,6 +49,11 @@ export class AppComponent {
     console.log("loading... completed");
   }
 
+  onClearLocalStorage(): void {
+    localStorage.clear();
+    this.item_list = {};
+  }
+
   onAddNewTimeSinceNow() {
     this.num_items++;
     const time = this.time_now;
