@@ -52,6 +52,7 @@ export class AppComponent {
   onRemoveTime(id: number) {
     console.log("id: ", id);
     this.item_list = this.item_list.slice(1, id);
+    localStorage.setItem("TimeSince", JSON.stringify(this.item_list));
   }
 
   onDataUpdate(event) {
