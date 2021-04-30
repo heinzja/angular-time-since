@@ -1,4 +1,5 @@
 import { Component, SimpleChanges } from "@angular/core";
+import { TimeSinceI } from "./time-since/time-since.component";
 
 @Component({
   selector: "my-app",
@@ -8,7 +9,7 @@ import { Component, SimpleChanges } from "@angular/core";
 export class AppComponent {
   name = "Time Since";
   title = "time-since";
-  item_list: Object[] = [];
+  item_list: TimeSinceI[] = [];
   // todays_date: any = new Date().toLocaleDateString();
 
   ngOnInit(): void {
@@ -21,25 +22,26 @@ export class AppComponent {
 
   addNewTimeSince() {
     const id = this.item_list.length;
-
-    this.item_list.push({
+    const item: TimeSinceI = {
       id,
       title: "TimeSince",
-      time: new Date(),
-    });
-    console.log(this.item_list);
+      time: new Date()
+    };
+
+    this.item_list.push(item);
+    // console.log(this.item_list);
     localStorage.setItem("TimeSince", JSON.stringify(this.item_list));
   }
 
   loadFromLocalStorage() {
-    console.log("loading...");
+    // console.log("loading...");
     this.item_list = JSON.parse(localStorage.getItem("TimeSince"));
-    if(this.item_list === null) {
+    if (this.item_list === null) {
       this.item_list = [];
     }
-    console.log(this.item_list);
-    console.log("this.item_list ", this.item_list);
-    console.log("loading... completed");
+    // console.log(this.item_list);
+    // console.log("this.item_list ", this.item_list);
+    // console.log("loading... completed");
   }
 
   onClearLocalStorage(): void {
@@ -48,6 +50,7 @@ export class AppComponent {
   }
 
   onRemoveTime(id: number) {
+    console.log("id: ", id);
     this.item_list = this.item_list.slice(1, id);
   }
 
