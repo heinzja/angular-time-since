@@ -1,11 +1,8 @@
 <div id="root">
   <div id="header">Time Since</div>
   <div id="content">
-    <button disabled>save(WIP)</button>
-    <button disabled>load(WIP)</button>
-    <button (click)="onClearLocalStorage()">clear local storage </button>
-    <br />
-    <button (click)="addNewTimeSince()">Start Counting!</button>
+    <button (click)="addNewTimeSince()">Create</button>
+    <button (click)="onClearLocalStorage()">Clear All</button>
     <br />
     <div id=grid-container>
       <div *ngFor="let item of item_list">
