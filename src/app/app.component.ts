@@ -1,5 +1,6 @@
 import { Component, SimpleChanges } from "@angular/core";
 import { TimeSinceI } from "./time-since/time-since.component";
+import * as uuid from "uuid";
 
 @Component({
   selector: "my-app",
@@ -21,9 +22,9 @@ export class AppComponent {
   }
 
   addNewTimeSince() {
-    const id = this.item_list.length;
+    const id = uuid.v4();
     const item: TimeSinceI = {
-      id,
+      id: id,
       title: "TimeSince",
       time: new Date()
     };

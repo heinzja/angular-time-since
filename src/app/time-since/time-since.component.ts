@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class TimeSince implements OnInit {
   @Input() item: TimeSinceI;
-  @Input() id: number;
+  @Input() id: string;
   @Input() time: Date;
   @Input() title: String;
   @Output() modified_item_ee: EventEmitter<TimeSinceI> = new EventEmitter();
@@ -50,7 +50,7 @@ export class TimeSince implements OnInit {
 }
 
 export interface TimeSinceI {
-  id: number;
+  id: string;
   title: String;
   time: Date;
 }
