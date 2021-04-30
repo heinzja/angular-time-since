@@ -11,10 +11,10 @@
   </div>
   <br />
   <div id="content">
-    Start Date: {{ this.time }}
+    Start Date: {{ this.time | date: "hh-mm a MM/dd/yyyy"}}
     <br />
     <div *ngIf="this.time">
-      time-since: {{ time_since }}
+      time-since: {{ time_since}}
     </div>
   </div>
   <br />
