@@ -1,8 +1,6 @@
 <div id="root">
   <div id="header">
-    <div id="header-title">Time Since</div>
-    <div style=""></div>
-    <div style="width: 3px display right;">Current Time: {{todays_date}}</div>
+    <app-header></app-header>
   </div>
   <div id="content">
     <button (click)="addNewTimeSince()">Create</button>
@@ -18,16 +16,8 @@
     </div>
   </div>
   <div id="footer">
-    <table style="width: 100%">
-      <tr>
-        <td>time since</td>
-        <td>
-          <a href="https://github.com/l0-w-0l/angular-time-since">
-            GitHub: l0-w-0l
-          </a>
-        </td>
-        <td>{{todays_date}}</td>
-      </tr>
-    </table>
+    <div> <a href="https://github.com/l0-w-0l/angular-time-since">
+        GitHub: l0-w-0l
+      </a></div>
   </div>
 </div>
