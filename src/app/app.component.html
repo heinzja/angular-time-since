@@ -4,6 +4,7 @@
     <button (click)="addNewTimeSince()">Create</button>
     <button (click)="onClearLocalStorage()">Clear All</button>
     <br />
+    <!--TODO: Make this a separate component to prevent cluttering the main file-->
     <div id=grid-container>
       <div *ngFor="let item of item_list">
         <app-time-since [id]="item.id" [title]="item.title" [time]="item.time"
