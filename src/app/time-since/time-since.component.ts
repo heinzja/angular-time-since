@@ -14,6 +14,7 @@ export class TimeSince implements OnInit {
   @Output() on_modify_ee: EventEmitter<Object> = new EventEmitter();
   @Output() on_delete_ee: EventEmitter<number> = new EventEmitter();
   time_since: string;
+  max_selectable_date: any;
 
   constructor() {}
 
@@ -27,6 +28,7 @@ export class TimeSince implements OnInit {
   calcTimeSince() {
     // console.log(this.time);
     const current_date = new Date();
+    this.max_selectable_date = current_date.toJSON().split('T')[0]; //set max selectable date for input fields
     const saved_date = new Date(this.time);
     const time_since: number = current_date.getTime() - saved_date.getTime();
     const difference_in_days = time_since / (1000*3600*24);

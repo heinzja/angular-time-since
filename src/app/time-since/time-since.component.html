@@ -15,7 +15,7 @@
   <br />
   <div id="content">
     <label for="startDate">Start Date:</label>
-    <input id="startDate" type="date" [ngModel]="this.time | date:'yyyy-MM-dd'" (ngModelChange)="updateTime($event)"/>
+    <input id="startDate" type="date" [max]="this.max_selectable_date" [ngModel]="this.time | date:'yyyy-MM-dd'" (ngModelChange)="updateTime($event)"/>
     <br />
     <div *ngIf="this.time">
       time-since: {{ time_since}}
