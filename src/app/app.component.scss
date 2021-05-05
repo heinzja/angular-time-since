@@ -1,19 +1,19 @@
+@use "../styles.scss" as global;
+
 #root {
-  background: orange;
+  font-family: global.$global-font;
+  font-size: global.$global-font-size;
+  outline: global.$global-outline;
+  padding: global.$global-padding;
 }
 
 #header {
-  outline: 3px black;
-  margin-bottom: 5px;
-  padding: 10px;
-  background: teal;
-}
-#header-title {
-  
+  outline: global.$global-outline;
 }
 
 #content {
-  padding: 10px;
+  outline: global.$global-outline;
+  padding: global.$global-padding;
 }
 
 #grid-container {
@@ -23,8 +23,6 @@
 }
 
 #footer {
-  outline: 3px black;
-  margin-top: 5px;
-  padding: 5px;
-  background: teal;
+  outline: global.$global-outline;
+  text-align: center;
 }
