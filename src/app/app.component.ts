@@ -11,10 +11,13 @@ export class AppComponent {
   name = "Time Since";
   title = "time-since";
   item_list: TimeSinceI[] = [];
-  // todays_date: any = new Date().toLocaleDateString();
+  todays_date: string = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
 
   ngOnInit(): void {
     this.loadFromLocalStorage();
+    setInterval(() => {
+      this.todays_date = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
+    }, 1000);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -1,5 +1,9 @@
 <div id="root">
-  <div id="header">Time Since</div>
+  <div id="header">
+    <div id="header-title">Time Since</div>
+    <div style=""></div>
+    <div style="width: 3px display right;">Current Time: {{todays_date}}</div>
+  </div>
   <div id="content">
     <button (click)="addNewTimeSince()">Create</button>
     <button (click)="onClearLocalStorage()">Clear All</button>
@@ -19,7 +23,7 @@
         <td>time since</td>
         <td>
           <a href="https://github.com/l0-w-0l/angular-time-since">
-            GitHub: |0-w-0|
+            GitHub: l0-w-0l
           </a>
         </td>
         <td>{{todays_date}}</td>

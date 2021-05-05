@@ -1,17 +1,15 @@
-p {
-  font-family: Lato;
-}
-
 #root {
   background: orange;
 }
 
 #header {
-  text-align: center;
   outline: 3px black;
   margin-bottom: 5px;
   padding: 10px;
   background: teal;
+}
+#header-title {
+  
 }
 
 #content {
