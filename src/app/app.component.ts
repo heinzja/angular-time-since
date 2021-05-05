@@ -24,10 +24,15 @@ export class AppComponent {
     console.log(changes);
   }
 
+  updateTime(event) {
+    //TODO: Update cookie and time stuff
+    console.log(event);
+  }
+
   addNewTimeSince() {
     const id = uuid.v4();
     const item: TimeSinceI = {
-      id: id,
+      id,
       title: "TimeSince",
       time: new Date()
     };
@@ -53,13 +58,19 @@ export class AppComponent {
     this.item_list = [];
   }
 
-  onRemoveTime(id: number) {
-    console.log("id: ", id);
-    this.item_list = this.item_list.slice(1, id);
+  onRemoveTime(index: number) {
+    this.item_list.splice(index, 1);
     localStorage.setItem("TimeSince", JSON.stringify(this.item_list));
   }
 
   onDataUpdate(event) {
     console.log(event);
+    this.item_list[event.index] = {
+      id: event.id, 
+      title: event.title,
+      time: event.time,
+    };
+    console.log(this.item_list);
+    localStorage.setItem("TimeSince", JSON.stringify(this.item_list));
   }
 }

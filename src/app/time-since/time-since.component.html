@@ -14,7 +14,8 @@
   </div>
   <br />
   <div id="content">
-    Start Date: {{ this.time | date: "hh-mm a MM/dd/yyyy"}}
+    <label for="startDate">Start Date:</label>
+    <input id="startDate" type="date" [ngModel]="this.time | date:'yyyy-MM-dd'" (ngModelChange)="updateTime($event)"/>
     <br />
     <div *ngIf="this.time">
       time-since: {{ time_since}}

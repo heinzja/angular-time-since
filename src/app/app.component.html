@@ -10,9 +10,9 @@
     <br />
     <!--TODO: Make this a separate component to prevent cluttering the main file-->
     <div id=grid-container>
-      <div *ngFor="let item of item_list">
-        <app-time-since [id]="item.id" [title]="item.title" [time]="item.time"
-          (modified_item)="this.onDataUpdate($event)" (on_delete_ee)="onRemoveTime()">
+      <div *ngFor="let item of item_list; let i = index">
+        <app-time-since [index]="i" [id]="item.id" [time]="item.time" [title]="item.title"
+        (on_modify_ee)="onDataUpdate($event)" (on_delete_ee)="onRemoveTime($event)">
         </app-time-since>
       </div>
     </div>

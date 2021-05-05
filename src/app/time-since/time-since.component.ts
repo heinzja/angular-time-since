@@ -7,11 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class TimeSince implements OnInit {
   @Input() item: TimeSinceI;
-  @Input() id: string;
+  @Input() id: String;
+  @Input() index: number;
   @Input() time: Date;
   @Input() title: String;
-  @Output() modified_item_ee: EventEmitter<TimeSinceI> = new EventEmitter();
-  @Output() on_delete_ee: EventEmitter<TimeSinceI["id"]> = new EventEmitter();
+  @Output() on_modify_ee: EventEmitter<Object> = new EventEmitter();
+  @Output() on_delete_ee: EventEmitter<number> = new EventEmitter();
   time_since: string;
 
   constructor() {}
@@ -28,12 +29,29 @@ export class TimeSince implements OnInit {
     const current_date = new Date();
     const saved_date = new Date(this.time);
     const time_since: number = current_date.getTime() - saved_date.getTime();
+    const difference_in_days = time_since / (1000*3600*24);
+    const hours_offset_in_days = difference_in_days * 24;
     this.time_since =
-      new Date(time_since).getUTCHours() +
+      (new Date(time_since).getUTCHours() + hours_offset_in_days).toFixed(0) +
       " : " +
       new Date(time_since).getUTCMinutes() +
       " : " +
-      new Date(time_since).getUTCSeconds();
+      new Date(time_since).getUTCSeconds()
+  }
+
+  updateTime(event) {
+    const splitTime = event.split("-");
+    let date = new Date();
+    date.setFullYear(splitTime[0]);
+    date.setMonth(splitTime[1] - 1); //Month goes from 0-11, so -(1) is the offset
+    date.setDate(splitTime[2]);
+    this.time = date;
+    this.on_modify_ee.emit({
+      id: this.id,
+      title: this.title,
+      time: this.time,
+      index: this.index,
+    })
   }
 
   updateTitle(new_value) {
@@ -45,12 +63,12 @@ export class TimeSince implements OnInit {
   }
 
   onDelete(): void {
-    this.on_delete_ee.emit(this.id);
+    this.on_delete_ee.emit(this.index);
   }
 }
 
 export interface TimeSinceI {
-  id: string;
+  id: String;
   title: String;
   time: Date;
 }
