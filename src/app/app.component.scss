@@ -3,16 +3,19 @@
 #root {
   font-family: global.$global-font;
   font-size: global.$global-font-size;
-  outline: global.$global-outline;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
   padding: global.$global-padding;
 }
 
 #header {
-  outline: global.$global-outline;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
 }
 
 #content {
-  outline: global.$global-outline;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
   padding: global.$global-padding;
 }
 
@@ -23,6 +26,7 @@
 }
 
 #footer {
-  outline: global.$global-outline;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
   text-align: center;
 }

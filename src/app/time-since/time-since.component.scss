@@ -1,31 +1,29 @@
+@use "../../styles.scss" as global;
+
+$card-max-width: 265px;
+$card-max-height: 355px;
+
 .parent {
-  max-width: 265px;
-  max-height: 355px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
+  max-width: $card-max-width;
+  max-height: $card-max-height;
+  padding: global.$global-padding;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
   background-color: white;
-  margin: 10px 10px 10px 10px;
 }
 
 #header {
-  width: auto;
-  height: auto;
-  outline: 3px black;
-  padding: 2px;
-  background: teal;
+  border: global.$global-border;
+  border-radius: global.$global-border-radius;
+  padding: global.$global-padding;
   text-align: center;
 }
 
 #content {
   width: auto;
   height: auto;
-  padding: 10px;
+  padding: global.$global-padding;
 }
 
 #footer {
-  width: auto;
-  height: auto;
-  outline: 3px black;
-  background: teal;
 }
