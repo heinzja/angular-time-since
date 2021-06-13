@@ -4,7 +4,7 @@
       <div id="header">
         <mat-form-field>
           <input
-          matInput
+            matInput
             #input
             placeholder="Title"
             [value]="this.title"
@@ -18,28 +18,31 @@
       <div id="content">
         <div id="form-field">
           <label for="startDate">Start Date</label>
-          <br/>
-          <input
+          <br />
+          <!-- commented out until functionality is complete -->
+          <!-- <input
             id="startDate"
             type="date"
             [max]="this.max_selectable_date"
             [ngModel]="this.time | date: 'yyyy-MM-dd'"
             (ngModelChange)="updateTime($event)"
-          />
+          /> -->
+          {{ time | date: 'MM-dd-yyyy' }}
         </div>
         <br />
         <div id="form-field">
           <div *ngIf="this.time">
             <label>Time Since</label>
-            <br/>
+            <br />
             {{ time_since }}
           </div>
         </div>
-
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="onDelete()" color="error">Delete</button>
+      <button mat-raised-button (click)="onDelete()" color="error">
+        Delete
+      </button>
     </mat-card-actions>
     <mat-card-footer>
       <div id="footer"></div>
