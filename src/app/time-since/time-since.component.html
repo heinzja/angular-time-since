@@ -1,27 +1,32 @@
 <div class="parent">
-  <div id="header">
-    Title:
-    <input
-      #input
-      placeholder="placeholder"
-      [value]="this.title"
-      (keyup.enter)="updateTitle(input.value)"
-    />
-
-    <button (click)="onDelete()">X</button>
-    <br>
-    ID: {{ this.id }}
-  </div>
-  <br />
-  <div id="content">
-    <label for="startDate">Start Date:</label>
-    <input id="startDate" type="date" [max]="this.max_selectable_date" [ngModel]="this.time | date:'yyyy-MM-dd'" (ngModelChange)="updateTime($event)"/>
-    <br />
-    <div *ngIf="this.time">
-      time-since: {{ time_since}}
-    </div>
-  </div>
-  <br />
-  <div id="footer">
-  </div>
+  <mat-card>
+    <mat-card-title>
+      <div id="header">
+        <input
+          #input
+          placeholder="placeholder"
+          [value]="this.title"
+          (keyup.enter)="updateTitle(input.value)"
+        />
+        <button (click)="onDelete()">X</button>
+      </div>
+    </mat-card-title>
+    <mat-card-content>
+      <div id="content">
+        <label for="startDate">Start Date:</label>
+        <input
+          id="startDate"
+          type="date"
+          [max]="this.max_selectable_date"
+          [ngModel]="this.time | date: 'yyyy-MM-dd'"
+          (ngModelChange)="updateTime($event)"
+        />
+        <br />
+        <div *ngIf="this.time">time-since: {{ time_since }}</div>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <div id="footer"></div>
+    </mat-card-footer>
+  </mat-card>
 </div>

@@ -7,14 +7,10 @@ $card-max-height: 355px;
   max-width: $card-max-width;
   max-height: $card-max-height;
   padding: global.$global-padding;
-  border: global.$global-border;
-  border-radius: global.$global-border-radius;
   background-color: white;
 }
 
 #header {
-  border: global.$global-border;
-  border-radius: global.$global-border-radius;
   padding: global.$global-padding;
   text-align: center;
 }

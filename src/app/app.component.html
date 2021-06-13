@@ -3,8 +3,8 @@
     <app-header></app-header>
   </div>
   <div id="content">
-    <button (click)="addNewTimeSince()">Create</button>
-    <button (click)="onClearLocalStorage()">Clear All</button>
+    <button mat-raised-button (click)="addNewTimeSince()" style="margin: 5px;">Create</button>
+    <button mat-raised-button (click)="onClearLocalStorage()" style="margin: 5px;">Clear All</button>
     <br />
     <!--TODO: Make this a separate component to prevent cluttering the main file-->
     <div id=grid-container>
