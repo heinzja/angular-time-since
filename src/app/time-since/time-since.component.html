@@ -2,29 +2,45 @@
   <mat-card>
     <mat-card-title>
       <div id="header">
-        <input
-          #input
-          placeholder="placeholder"
-          [value]="this.title"
-          (keyup.enter)="updateTitle(input.value)"
-        />
-        <button (click)="onDelete()">X</button>
+        <mat-form-field>
+          <input
+          matInput
+            #input
+            placeholder="Title"
+            [value]="this.title"
+            (keyup.enter)="updateTitle(input.value)"
+            style="max-width: 160px"
+          />
+        </mat-form-field>
       </div>
     </mat-card-title>
     <mat-card-content>
       <div id="content">
-        <label for="startDate">Start Date:</label>
-        <input
-          id="startDate"
-          type="date"
-          [max]="this.max_selectable_date"
-          [ngModel]="this.time | date: 'yyyy-MM-dd'"
-          (ngModelChange)="updateTime($event)"
-        />
+        <div id="form-field">
+          <label for="startDate">Start Date</label>
+          <br/>
+          <input
+            id="startDate"
+            type="date"
+            [max]="this.max_selectable_date"
+            [ngModel]="this.time | date: 'yyyy-MM-dd'"
+            (ngModelChange)="updateTime($event)"
+          />
+        </div>
         <br />
-        <div *ngIf="this.time">time-since: {{ time_since }}</div>
+        <div id="form-field">
+          <div *ngIf="this.time">
+            <label>Time Since</label>
+            <br/>
+            {{ time_since }}
+          </div>
+        </div>
+
       </div>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onDelete()" color="error">Delete</button>
+    </mat-card-actions>
     <mat-card-footer>
       <div id="footer"></div>
     </mat-card-footer>

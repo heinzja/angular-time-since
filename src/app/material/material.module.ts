@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@Angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [],
@@ -13,14 +15,18 @@ import { MatCardModule } from '@Angular/material/card';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }
